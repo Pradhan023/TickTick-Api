@@ -19,8 +19,9 @@ app.use(userroute)
 app.use(dataroute)
 
 const Port = process.env.Port || 8000
+const Hostname = process.env.Host_Name
 
-app.listen(Port,async()=>{
+app.listen(Port,Hostname,async()=>{
     try{
         await connection();
         console.log("Sever is live on Port " , Port);
