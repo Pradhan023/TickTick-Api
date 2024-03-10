@@ -5,7 +5,9 @@ const app = express()
 
 const cors = require("cors")
 
-app.use(cors())
+app.use(cors({
+    origin:"*"
+}))
 
 const connection = require("./config/config")
 const userroute = require("./route/routeauth")
