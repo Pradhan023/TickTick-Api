@@ -30,5 +30,3 @@ const server = app.listen(Port,Hostname,async()=>{
         console.log("Server error ", err);
     }
 })
-
-server.timeout = 60000
