@@ -6,7 +6,9 @@ const app = express()
 const cors = require("cors")
 
 app.use(cors({
-    origin:"https://playful-eclair-831f88.netlify.app/"
+    origin:"*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    allowedHeaders: "*"
 }))
 
 const connection = require("./config/config")
