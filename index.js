@@ -6,7 +6,7 @@ const app = express()
 const cors = require("cors")
 
 app.use(cors({
-    origin:"*"
+    origin:"https://playful-eclair-831f88.netlify.app/"
 }))
 
 const connection = require("./config/config")
@@ -15,6 +15,9 @@ const dataroute = require("./route/dataroute")
 
 // middleware
 app.use(express.json())
+// Enable preflight for all routes
+app.options('*', cors());
+
 app.use(userroute)
 app.use(dataroute)
 
