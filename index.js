@@ -21,7 +21,7 @@ app.use(dataroute)
 const Port = process.env.Port || 8000
 const Hostname = process.env.Host_Name
 
-app.listen(Port,Hostname,async()=>{
+const server = app.listen(Port,Hostname,async()=>{
     try{
         await connection();
         console.log("Sever is live on Port " , Port);
@@ -30,3 +30,5 @@ app.listen(Port,Hostname,async()=>{
         console.log("Server error ", err);
     }
 })
+
+server.timeout = 60000
