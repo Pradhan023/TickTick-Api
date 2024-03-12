@@ -6,10 +6,15 @@ const app = express()
 const cors = require("cors")
 
 app.use(cors({
-    origin:"*",
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    allowedHeaders: "*"
+    origin:"*"
 }))
+
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    next();
+  })
 
 const connection = require("./config/config")
 const userroute = require("./route/routeauth")
